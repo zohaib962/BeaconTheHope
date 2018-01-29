@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.beacon.zohaib.beacon.MainActivity">
+    tools:context="com.beacon.zohaib.beacon.ImpairmentActivity">
 
     <android.support.v7.widget.CardView
-        android:id="@+id/mainCV"
+        android:id="@+id/impairmentMainCV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         app:cardElevation="4dp"
+
         app:cardCornerRadius="3dp"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -25,43 +26,46 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/trackingIV"
+                android:id="@+id/hearingIV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/tracking_icon" />
+                android:src="@drawable/hearing_icon"
+                android:onClick="openHearingActivity"
+                />
             <ImageView
-                android:id="@+id/medicationIV"
+                android:id="@+id/mentalIV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/medication_icon" />
+                android:src="@drawable/mental_icon" />
 
             <ImageView
-                android:id="@+id/impairmentIV"
+                android:id="@+id/speechIV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                android:src="@drawable/impairment_icon"
-                app:layout_constraintEnd_toEndOf="@drawable/tracking_icon"
-                app:layout_constraintStart_toStartOf="@drawable/tracking_icon"
-                app:layout_constraintTop_toBottomOf="@id/trackingIV"
-                android:onClick="openImapairment"
+                android:src="@drawable/speech_icon"
+                app:layout_constraintEnd_toEndOf="@drawable/hearing_icon"
+                app:layout_constraintStart_toStartOf="@drawable/hearing_icon"
+                app:layout_constraintTop_toBottomOf="@id/hearingIV"
+                android:onClick="openSpeechActivity"
                 />
             <ImageView
-                android:id="@+id/sosIV"
+                android:id="@+id/visionIV"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:padding="16dp"
-                app:layout_constraintStart_toStartOf="@id/medicationIV"
-                app:layout_constraintEnd_toEndOf="@id/medicationIV"
-                app:layout_constraintTop_toBottomOf="@id/medicationIV"
-                android:src="@drawable/sos_icon"
-                android:onClick="openSOS"/>
+                app:layout_constraintStart_toStartOf="@id/mentalIV"
+                app:layout_constraintEnd_toEndOf="@id/mentalIV"
+                app:layout_constraintTop_toBottomOf="@id/mentalIV"
+                android:src="@drawable/vision_icon"
+                android:onClick="openTextDetect"
+                />
         </android.support.constraint.ConstraintLayout>
 
     </android.support.v7.widget.CardView>
@@ -74,43 +78,37 @@
         android:layout_marginRight="16dp"
         app:cardElevation="4dp"
         app:cardCornerRadius="3dp"
-        app:layout_constraintStart_toStartOf="@id/mainCV"
-        app:layout_constraintEnd_toEndOf="@id/mainCV"
-        app:layout_constraintTop_toBottomOf="@id/mainCV"
+        app:layout_constraintStart_toStartOf="@id/impairmentMainCV"
+        app:layout_constraintEnd_toEndOf="@id/impairmentMainCV"
+        app:layout_constraintTop_toBottomOf="@id/impairmentMainCV"
         >
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <TextView
-                android:id="@+id/alertTV"
+                android:id="@+id/tipsTV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Alert!"
+                android:text="Tips"
                 android:padding="16dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 android:textColor="@android:color/black"
                 android:textSize="32sp"
                 />
-            <ImageView
-                android:id="@+id/alertIV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="32dp"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/alert_icon" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Critical Notifications Pending"
+                android:text="We are here to help if you need us"
                 android:textSize="16sp"
                 android:paddingLeft="16dp"
                 android:paddingBottom="16dp"
-                app:layout_constraintTop_toBottomOf="@id/alertTV"
-                app:layout_constraintLeft_toLeftOf="@id/alertTV"
+                app:layout_constraintTop_toBottomOf="@id/tipsTV"
+                app:layout_constraintLeft_toLeftOf="@id/tipsTV"
                 />
         </android.support.constraint.ConstraintLayout>
     </android.support.v7.widget.CardView>
+
+
 </android.support.constraint.ConstraintLayout>

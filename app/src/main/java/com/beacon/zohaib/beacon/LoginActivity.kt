@@ -5,21 +5,21 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_login)
     }
 
-    fun openImapairment(view: View)
+    fun openDashboard(view: View)
     {
-        val intent= Intent(this,ImpairmentActivity::class.java)
+        val intent= Intent(this,MainActivity::class.java)
         startActivity(intent)
     }
-    fun openSOS(view: View)
+    fun openSignUp(view: View)
     {
-        val intent=Intent(this,SosActivity::class.java)
+        val intent=Intent(this,SignupActivity::class.java)
         startActivity(intent)
     }
 }

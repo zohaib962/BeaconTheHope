@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beacon.zohaib.beacon.SosActivity">
+    <android.support.constraint.Guideline
+        android:id="@+id/centerHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".1"
+        />
+    <android.support.constraint.Guideline
+        android:id="@+id/centerHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".65"
+        />
+<ImageView
+    android:id="@+id/sosActivtyIV"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:src="@drawable/sos_activity_icon"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/centerHorizontal"/>
+    <TextView
+        android:id="@+id/callTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/centerHorizontal2"
+        android:text="Call initiating in 0s..."
+        android:gravity="center_horizontal"
+        android:textSize="20sp"
+        android:layout_marginTop="32dp"
+        />
+
+    <Button
+        android:id="@+id/abortBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abort"
+        android:textColor="@android:color/white"
+        android:background="@drawable/round_btn"
+        app:layout_constraintStart_toStartOf="@id/callTV"
+        app:layout_constraintEnd_toEndOf="@id/callTV"
+        app:layout_constraintTop_toBottomOf="@id/callTV"
+        android:layout_marginTop="32dp"
+        android:textSize="16sp"
+        />
+</android.support.constraint.ConstraintLayout>
