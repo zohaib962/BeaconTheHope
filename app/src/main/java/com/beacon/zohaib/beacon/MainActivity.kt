@@ -22,4 +22,9 @@ class MainActivity : AppCompatActivity() {
         val intent=Intent(this,SosActivity::class.java)
         startActivity(intent)
     }
+    fun openMedication(view: View)
+    {
+        val intent=Intent(this,ActiveMedication::class.java)
+        startActivity(intent)
+    }
 }

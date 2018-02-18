@@ -108,4 +108,15 @@ dependencies {
     //google vision library
 
     compile 'com.google.android.gms:play-services-vision:9.8.0'
+    // Adds Google VR spatial audio support
+    compile 'com.google.vr:sdk-audio:1.120.0'
+
+    // Required for all Google VR apps
+    compile 'com.google.vr:sdk-base:1.120.0'
+
+    // Required for Panorama Widget
+    compile 'com.google.vr:sdk-panowidget:1.120.0'
+
+    // Required for Video Widget
+    compile 'com.google.vr:sdk-videowidget:1.120.0'
 }

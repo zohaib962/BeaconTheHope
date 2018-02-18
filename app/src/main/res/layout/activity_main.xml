@@ -39,7 +39,8 @@
                 android:padding="16dp"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:src="@drawable/medication_icon" />
+                android:src="@drawable/medication_icon"
+                android:onClick="openMedication"/>
 
             <ImageView
                 android:id="@+id/impairmentIV"

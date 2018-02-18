@@ -1,7 +1,9 @@
 package com.beacon.zohaib.beacon;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.os.CountDownTimer;
 import android.speech.tts.TextToSpeech;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -12,6 +14,9 @@ import android.util.SparseArray;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.gms.vision.CameraSource;
@@ -28,6 +33,9 @@ public class TextDetect extends AppCompatActivity {
     CameraSource cameraSource;
     final int RequestCameraPermissionID = 1001;
     TextToSpeech t1;
+    Button startDetectionBtn;
+    Button stopDetectionBtn;
+    TextRecognizer textRecognizer;
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -49,24 +57,29 @@ public class TextDetect extends AppCompatActivity {
         }
     }
 
+    boolean isSurfaceCreated=false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_text_detect);
 
         cameraView = (SurfaceView) findViewById(R.id.surface_view);
         textView = (TextView) findViewById(R.id.text_view);
-
-        t1=new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+        startDetectionBtn=(Button)findViewById(R.id.startDetectionBtn);
+        stopDetectionBtn=(Button)findViewById(R.id.stopDetectionBtn);
+        t1 = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
-                if(status != TextToSpeech.ERROR) {
+                if (status != TextToSpeech.ERROR) {
                     t1.setLanguage(Locale.getDefault());
                 }
             }
         });
-        TextRecognizer textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
+
+
+        textRecognizer = new TextRecognizer.Builder(getApplicationContext()).build();
         if (!textRecognizer.isOperational()) {
             Log.w("MainActivity", "Detector dependencies are not yet available");
         } else {
@@ -89,8 +102,9 @@ public class TextDetect extends AppCompatActivity {
                                     RequestCameraPermissionID);
                             return;
                         }
-                        cameraSource.start(cameraView.getHolder());
-                    } catch (IOException e) {
+                        isSurfaceCreated=true;
+                     //               cameraSource.start(cameraView.getHolder());
+                    } catch (Exception e) {
                         e.printStackTrace();
                     }
                 }
@@ -117,14 +131,12 @@ public class TextDetect extends AppCompatActivity {
                 public void receiveDetections(Detector.Detections<TextBlock> detections) {
 
                     final SparseArray<TextBlock> items = detections.getDetectedItems();
-                    if(items.size() != 0)
-                    {
+                    if (items.size() != 0) {
                         textView.post(new Runnable() {
                             @Override
                             public void run() {
                                 StringBuilder stringBuilder = new StringBuilder();
-                                for(int i =0;i<items.size();++i)
-                                {
+                                for (int i = 0; i < items.size(); ++i) {
                                     TextBlock item = items.valueAt(i);
                                     stringBuilder.append(item.getValue());
                                     stringBuilder.append("\n");
@@ -140,10 +152,38 @@ public class TextDetect extends AppCompatActivity {
 
     }
 
-    public void speak2(View view)
+    public void speak2(View view) {
+       // String text = textView.getText().toString();
+
+        //t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+    }
+
+
+    public void startDetection(View view) throws IOException {
+        textView.setVisibility(View.VISIBLE);
+        if (cameraSource != null&& isSurfaceCreated) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+                return;
+            }
+            cameraSource.start(cameraView.getHolder());
+        }
+
+        startDetectionBtn.setVisibility(View.GONE);
+        stopDetectionBtn.setVisibility(View.VISIBLE);
+
+
+    }
+    public void stopDetection(View view)
     {
-        String text=textView.getText().toString();
+
+        cameraSource.stop();
+
+        String text = textView.getText().toString();
+
         t1.speak(text, TextToSpeech.QUEUE_FLUSH, null);
+
+        startDetectionBtn.setVisibility(View.VISIBLE);
+        stopDetectionBtn.setVisibility(View.GONE);
     }
 
     @Override

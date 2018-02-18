@@ -32,6 +32,12 @@ class ImpairmentActivity : AppCompatActivity() {
         val intent=Intent(this,HearingActivity::class.java)
         startActivity(intent)
     }
+
+    fun openMentalActivity(view: View)
+    {
+        val intent=Intent(this,MentalActivity::class.java)
+        startActivity(intent)
+    }
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when(item?.itemId)
         {
