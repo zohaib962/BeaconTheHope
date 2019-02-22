@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beacon.zohaib.beacon.ui.activities.HearingAidActivity">
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/centerHorizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".15"
+        />
+    <android.support.constraint.Guideline
+        android:id="@+id/centerHorizontal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".75"
+        />
+    <ImageButton
+        android:id="@+id/speakIV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@id/centerHorizontal"
+        android:src="@drawable/speak_icon"
+
+        />
+    <TextView
+        android:id="@+id/infoTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/speakIV"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/centerHorizontal2"
+        android:text="Instruction"
+        />
+    <TextView
+        android:id="@+id/infoTV2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/infoTV"
+        android:textSize="15sp"
+        app:layout_constraintTop_toBottomOf="@id/infoTV"
+        app:layout_constraintEnd_toEndOf="@id/speakIV"
+        android:text="Tap and Hold button to start recording.
+Release button to play amplified sound."
+        />
+</android.support.constraint.ConstraintLayout>

@@ -2,32 +2,27 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.beacon.zohaib.beacon">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
 
     <application
+        android:name="android.support.multidex.MultiDexApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="Dashboard"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ImpairmentActivity"
-            android:label="Impairment"
-            android:parentActivityName=".MainActivity"
+            android:name=".ui.activities.MainActivity"
             android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,64 +30,126 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SpeechActivity"
-            android:label="Speech"
-            android:parentActivityName=".ImpairmentActivity"
+            android:name=".ui.activities.ImpairmentActivity"
+            android:label="Impairment"
+            android:parentActivityName=".ui.activities.MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ImpairmentActivity" />
+                android:value=".ui.activities.MainActivity" />
         </activity>
         <activity
-            android:name=".SosActivity"
-            android:label="SOS"
-            android:parentActivityName=".MainActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
-        </activity>
-        <activity
-            android:name=".SignupActivity"
-            android:label="Sign Up"
-            android:parentActivityName=".LoginActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".LoginActivity" />
-        </activity>
-        <activity
-            android:name=".HearingActivity"
-            android:label="Hearing"
-            android:parentActivityName=".ImpairmentActivity"
-            android:screenOrientation="portrait">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ImpairmentActivity" />
-        </activity>
-        <activity
-            android:name=".TextDetect"
+            android:name=".ui.activities.LOginActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme." />
         <activity
-            android:name=".Medication"
-            android:label="Add Medication"
-            android:parentActivityName=".ActiveMedication"
+            android:name=".ui.activities.SpeechActivity"
+            android:label="Speech"
+            android:parentActivityName=".ui.activities.ImpairmentActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ActiveMedication" />
+                android:value=".ui.activities.ImpairmentActivity" />
         </activity>
         <activity
-            android:name=".ActiveMedication"
-            android:label="Medication"
-            android:parentActivityName=".MainActivity"
+            android:name=".ui.activities.SOSActivity"
+            android:label="SOS"
+            android:parentActivityName=".ui.activities.MainActivity"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".ui.activities.MainActivity" />
         </activity>
-        <activity android:name=".MentalActivity" />
-        <activity android:name=".MentalVideoActivity"></activity>
+        <activity
+            android:name=".ui.activities.SIgnUpActivity"
+            android:label="Sign Up"
+            android:parentActivityName=".ui.activities.LOginActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.LOginActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.HearingActivity"
+            android:label="Hearing"
+            android:parentActivityName=".ui.activities.ImpairmentActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.ImpairmentActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.TextDetect"
+            android:theme="@style/AppTheme." />
+        <activity
+            android:name=".ui.activities.Medication"
+            android:label="Add Medication"
+            android:parentActivityName=".ui.activities.ActiveMedication"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.ActiveMedication" />
+        </activity>
+        <activity
+            android:name=".ui.activities.ActiveMedication"
+            android:label="Medication"
+            android:parentActivityName=".ui.activities.MainActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.MentalActivity"
+            android:label="Mental Therapy"
+            android:parentActivityName=".ui.activities.ImpairmentActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.ImpairmentActivity" />
+        </activity>
+        <activity android:name=".ui.activities.MentalVideoActivity" />
+
+        <receiver android:name=".recievers.AlarmReciever" />
+        <receiver android:name=".recievers.DeletingAlarmReciever" />
+
+        <activity android:name=".ui.activities.CurrentMed" />
+        <activity
+            android:name=".ui.activities.DeafActivity"
+            android:label="Deaf Assist"
+            android:parentActivityName=".ui.activities.HearingActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.HearingActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.HearingAidActivity"
+            android:label="Hearig Aid"
+            android:parentActivityName=".ui.activities.HearingActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.HearingActivity" />
+        </activity>
+        <activity
+            android:name=".ui.activities.VisionActivity"
+            android:label="Vision"
+            android:parentActivityName=".ui.activities.ImpairmentActivity"
+            android:screenOrientation="portrait">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.activities.ImpairmentActivity" />
+        </activity>
+        <activity android:name=".ui.activities.ObjectDetect" />
+        <activity android:name=".ui.activities.TrackingActivity"></activity>
+        <service
+            android:exported="false"
+            android:name=".services.BeaconHeartRateMonitorService"
+            ><intent-filter>
+            <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
+        </intent-filter>
+        </service>
     </application>
 
 </manifest>

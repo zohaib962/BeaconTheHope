@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.beacon.zohaib.beacon.SosActivity">
+    tools:context="com.beacon.zohaib.beacon.ui.activities.SOSActivity">
     <android.support.constraint.Guideline
         android:id="@+id/centerHorizontal"
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/centerHorizontal2"
-        android:text="Call initiating in 0s..."
+        android:text="Call initiating in 5s..."
         android:gravity="center_horizontal"
         android:textSize="20sp"
         android:layout_marginTop="32dp"
@@ -52,5 +52,6 @@
         app:layout_constraintTop_toBottomOf="@id/callTV"
         android:layout_marginTop="32dp"
         android:textSize="16sp"
+        android:onClick="call"
         />
 </android.support.constraint.ConstraintLayout>

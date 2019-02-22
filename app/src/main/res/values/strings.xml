@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Beacon</string>
+    <string name="main_notification_channel_name">Primary</string>
+    <string name="notification_title">Time for your medication</string>
+    <string name="notification_body">Its time for your medication. Please take it on time</string>
+
+    <string name="mykey"> AIzaSyBp9uKBCg1ccy579c8EwYf_nXfWXiRtdyo </string>
+
 </resources>

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.beacon.zohaib.beacon.LoginActivity">
+    tools:context="com.beacon.zohaib.beacon.ui.activities.LOginActivity">
 
     <android.support.constraint.Guideline
         android:id="@+id/centerHorizontal"
@@ -70,17 +70,7 @@
 
     </android.support.design.widget.TextInputLayout>
 
-    <TextView
-        android:id="@+id/forgotPasswordTV"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Forgot Password?"
-        android:textSize="16sp"
-        android:layout_marginTop="8dp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/passwordET"
-        app:layout_constraintEnd_toEndOf="@id/passwordET"
-        />
+
 
     <Button
         android:id="@+id/signInBtn"
@@ -89,8 +79,8 @@
         android:text="Sign In"
         android:textColor="@android:color/white"
         android:background="@drawable/round_btn"
-        app:layout_constraintTop_toBottomOf="@id/forgotPasswordTV"
-        app:layout_constraintEnd_toEndOf="@id/forgotPasswordTV"
+        app:layout_constraintTop_toBottomOf="@id/passwordET"
+        app:layout_constraintEnd_toEndOf="@id/passwordET"
         android:layout_marginTop="8dp"
         android:onClick="openDashboard"
         />

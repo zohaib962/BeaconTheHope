@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+<TextView
+    android:id="@+id/activeMedNameTV"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    android:text="Medicine"
+    android:textSize="20sp"
+    android:textColor="@android:color/black"
+    />
+
+    <TextView
+        android:id="@+id/activeMedDosageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200mg"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintStart_toEndOf="@id/activeMedNameTV"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="5dp"
+        android:layout_marginLeft="16dp"
+        />
+    <Button
+        android:id="@+id/delMedBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="16dp"
+        />
+</android.support.constraint.ConstraintLayout>

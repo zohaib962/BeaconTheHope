@@ -12,7 +12,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
+        multiDexEnabled true
         testInstrumentationRunner 'android.support.test.runner.AndroidJUnitRunner'
     }
 
@@ -90,6 +90,8 @@ dependencies {
     androidTestCompile "com.android.support.test.espresso.idling:idling-concurrent:$rootProject.espressoVersion"
     compile "com.android.support.test.espresso:espresso-idling-resource:$rootProject.espressoVersion"
 
+    compile 'com.android.support:multidex:1.0.1'
+
     // Resolve conflicts between main and test APK:
     androidTestCompile "com.android.support:support-annotations:$rootProject.supportLibraryVersion"
     androidTestCompile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
@@ -105,9 +107,10 @@ dependencies {
 
     kapt "com.android.databinding:compiler:$gradlePluginVersion"
 
+    compile 'com.github.kittinunf.fuel:fuel-android:1.5.0'
     //google vision library
 
-    compile 'com.google.android.gms:play-services-vision:9.8.0'
+    compile 'com.google.android.gms:play-services-vision:12.0.0'
     // Adds Google VR spatial audio support
     compile 'com.google.vr:sdk-audio:1.120.0'
 
@@ -119,4 +122,9 @@ dependencies {
 
     // Required for Video Widget
     compile 'com.google.vr:sdk-videowidget:1.120.0'
+
+    compile 'com.firebase:firebase-jobdispatcher:0.6.0'
+
+    compile 'com.google.firebase:firebase-database:12.0.0'
 }
+apply plugin: 'com.google.gms.google-services'

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/currMedNameTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TestMed"
+        android:textColor="@android:color/black"
+        android:textSize="20sp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/currMedDosageTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="200mg"
+        android:textColor="@android:color/black"
+        android:textSize="15sp"
+        android:layout_marginLeft="12dp"
+        app:layout_constraintStart_toEndOf="@id/currMedNameTV"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingTop="5dp"
+        />
+</android.support.constraint.ConstraintLayout>

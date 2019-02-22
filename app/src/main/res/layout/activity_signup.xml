@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.beacon.zohaib.beacon.SignupActivity">
+    tools:context="com.beacon.zohaib.beacon.ui.activities.SIgnUpActivity">
 
     <android.support.constraint.Guideline
         android:id="@+id/centerHorizontal"
@@ -39,40 +39,18 @@
         />
 
     <EditText
-        android:id="@+id/codeET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        android:text="+92"
-
-        app:layout_constraintStart_toStartOf="@id/lastNameET"
-        app:layout_constraintTop_toBottomOf="@id/lastNameET"
-        />
-    <EditText
         android:id="@+id/phoneET"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textColor="@android:color/black"
-        app:layout_constraintStart_toEndOf="@id/codeET"
+        app:layout_constraintStart_toStartOf="@id/lastNameET"
         app:layout_constraintEnd_toEndOf="@id/lastNameET"
         app:layout_constraintTop_toBottomOf="@id/lastNameET"
-        android:hint="Phone"
+        android:hint="Relative Phone.e.g (03331234567)"
         android:inputType="number"
         />
 
-    <EditText
-        android:id="@+id/emailET"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintStart_toStartOf="@id/codeET"
-        app:layout_constraintEnd_toEndOf="@id/phoneET"
-        app:layout_constraintTop_toBottomOf="@id/phoneET"
-        android:hint="Email"
-        />
 
     <TextView
         android:id="@+id/genderTV"
@@ -80,8 +58,8 @@
         android:layout_height="wrap_content"
         android:text="Gender"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@id/emailET"
-        app:layout_constraintTop_toBottomOf="@id/emailET"
+        app:layout_constraintStart_toStartOf="@id/phoneET"
+        app:layout_constraintTop_toBottomOf="@id/phoneET"
         android:layout_marginTop="16dp"
         />
     <RadioGroup
@@ -121,7 +99,7 @@
         android:textSize="20sp"
         android:textColor="@android:color/black"
         app:layout_constraintStart_toStartOf="@id/gengerRG"
-        app:layout_constraintEnd_toEndOf="@id/emailET"
+        app:layout_constraintEnd_toEndOf="@id/lastNameET"
         app:layout_constraintTop_toBottomOf="@id/gengerRG"
         android:hint="Username"
         android:layout_marginTop="8dp"
